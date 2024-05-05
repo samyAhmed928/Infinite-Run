@@ -4,10 +4,10 @@ using UnityEngine;
 public class GroundTile : MonoBehaviour
 {
     GroundSpawner groundSpawner;
-    // Start is called before the first frame update
     void Start()
     {
         groundSpawner=GameObject.FindObjectOfType<GroundSpawner>();
+        SpawnObstacles();
     }
     private void OnTriggerExit(Collider other)
     {
@@ -18,5 +18,16 @@ public class GroundTile : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public GameObject obstaclePrefab;
+
+    void SpawnObstacles()
+    {
+        int obstacleSpawnerIndex = Random.Range(2,5);
+        Transform spawnPoint=transform.GetChild(obstacleSpawnerIndex).transform;
+
+        Instantiate(obstaclePrefab, spawnPoint.position, Quaternion.identity, transform);
+
     }
 }
