@@ -42,7 +42,7 @@ public class PlayerMovment : MonoBehaviour
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-        if (Input.GetButtonDown("Jump") && IsonGround)
+        if (Input.GetButtonDown("Jump") && IsonGround&&alive)
             {
                 Jump();
                 IsonGround = false;

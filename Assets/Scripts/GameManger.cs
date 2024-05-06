@@ -10,7 +10,7 @@ public class GameManger : MonoBehaviour
     public static GameManger inst;
     [SerializeField] Text scoreText;
     [SerializeField] PlayerMovment playerMovment;
-    public AudioSource Source;
+    public AudioSource Source,second_source;
     public AudioClip Coin_sound,upgradeSfx;
     public void IncrementScore()
     {
@@ -20,8 +20,8 @@ public class GameManger : MonoBehaviour
         Source.Play();
         if (score == upgradeScore)
         {
-            Source.clip = upgradeSfx;
-            Source.Play();
+            second_source.clip = upgradeSfx;
+            second_source.Play();
             upgradeScore += 10;
         }
         //increase player speed
