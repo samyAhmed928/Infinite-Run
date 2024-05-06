@@ -5,6 +5,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     [SerializeField] float turnspeed = 90f;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<Obstacle>()!=null)
@@ -15,6 +16,7 @@ public class Coin : MonoBehaviour
         {
             return;
         }
+
         GameManger.inst.IncrementScore();
         Destroy(gameObject);
     }

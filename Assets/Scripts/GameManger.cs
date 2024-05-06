@@ -6,14 +6,24 @@ using UnityEngine;
 public class GameManger : MonoBehaviour
 {
     int score;
+    int upgradeScore = 10;
     public static GameManger inst;
     [SerializeField] Text scoreText;
     [SerializeField] PlayerMovment playerMovment;
-
+    public AudioSource Source;
+    public AudioClip Coin_sound,upgradeSfx;
     public void IncrementScore()
     {
         score++;
         scoreText.text = $"SCORE : {score}";
+        Source.clip = Coin_sound;
+        Source.Play();
+        if (score == upgradeScore)
+        {
+            Source.clip = upgradeSfx;
+            Source.Play();
+            upgradeScore += 10;
+        }
         //increase player speed
         playerMovment.speed += playerMovment.speedIncreasePoint;
     }
