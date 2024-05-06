@@ -5,14 +5,17 @@ using UnityEngine;
 
 public class GameManger : MonoBehaviour
 {
-     int score;
+    int score;
     public static GameManger inst;
-    public Text scoreText;
+    [SerializeField] Text scoreText;
+    [SerializeField] PlayerMovment playerMovment;
 
     public void IncrementScore()
     {
         score++;
         scoreText.text = $"SCORE : {score}";
+        //increase player speed
+        playerMovment.speed += playerMovment.speedIncreasePoint;
     }
     // Start is called before the first frame update
 

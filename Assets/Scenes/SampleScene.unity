@@ -531,7 +531,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rb: {fileID: 1230884903}
-  horizontalMultiplier: 2
+  horizontalMultiplier: 1.5
+  speedIncreasePoint: 0.2
+  jumpForce: 600
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!65 &1230884902
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -788,7 +793,7 @@ GameObject:
   - component: {fileID: 2077595720}
   - component: {fileID: 2077595719}
   m_Layer: 0
-  m_Name: GameMager
+  m_Name: GameManger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -807,6 +812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1554301099}
+  playerMovment: {fileID: 1230884901}
 --- !u!4 &2077595720
 Transform:
   m_ObjectHideFlags: 0

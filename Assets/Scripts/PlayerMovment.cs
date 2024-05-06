@@ -1,16 +1,22 @@
 
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovnment : MonoBehaviour
+public class PlayerMovment : MonoBehaviour
 {
     bool alive = true;
     public float speed = 5;
-    public Rigidbody rb;
+    [SerializeField] Rigidbody rb;
 
     float horizontalInput;
 
-    public float horizontalMultiplier = 2;
+    [SerializeField] float horizontalMultiplier = 2;
+
+    public float speedIncreasePoint = 0.1f;
+
+    [SerializeField] float jumpForce = 400f;
+    [SerializeField] LayerMask groundMask;
     private void FixedUpdate()
     {
         if (!alive) return;
@@ -18,7 +24,7 @@ public class PlayerMovnment : MonoBehaviour
         Vector3 HorizontalMove = transform.right * horizontalInput*speed*Time.fixedDeltaTime*horizontalMultiplier;
         rb.MovePosition(rb.position + forwardmove+HorizontalMove);
     }
-    // Start is called before the first frame update
+                
     void Start()
     {
         
@@ -28,6 +34,11 @@ public class PlayerMovnment : MonoBehaviour
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        }
         if (transform.position.y<-5)
         {
             Die();
@@ -44,5 +55,15 @@ public class PlayerMovnment : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
+    }
+
+    void Jump()
+    {
+        float height=GetComponent<Collider>().bounds.size.y;
+        bool isGrounded = Physics.Raycast(transform.position, Vector3.down, (height / 2) + 0.1f,groundMask);
+
+        rb.AddForce(Vector3.up * jumpForce);
+
+        
     }
 }

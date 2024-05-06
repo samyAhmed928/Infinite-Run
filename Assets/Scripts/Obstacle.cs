@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    PlayerMovnment playerMovnment;
+    PlayerMovment playerMovnment;
     void Start()
     {
-        playerMovnment=GameObject.FindObjectOfType<PlayerMovnment>();
+        playerMovnment=GameObject.FindObjectOfType<PlayerMovment>();
     }
     private void OnCollisionEnter(Collision collision)
     {

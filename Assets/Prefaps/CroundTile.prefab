@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5713393399574013394}
   - component: {fileID: 6031310419290485691}
   - component: {fileID: 6978032391233560448}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 3829585169602906478}
   - component: {fileID: 2584816076792707292}
   - component: {fileID: -2124830394105525547}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CroundTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,6 +179,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 3692918402345519532, guid: ac8fe8447dde4ff4da39a6df7030cfc6, type: 3}
   coinPrefarb: {fileID: 9138768657635696817, guid: b7988e734c3e40c42bbfd79bd0e613e2, type: 3}
+  tallobstaclePrefab: {fileID: 3692918402345519532, guid: 8d9da45ed85d2fb4f91d605e57fd6886, type: 3}
+  tallObstacleChance: 0.2
 --- !u!1 &6449080994714217025
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3365212646744174619}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NextSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 298437227101260847}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ObstacleSpawnRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4716708692452013662}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ObstacleSpawnMiddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +283,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3420758983525270082}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ObstacleSpawnLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4,36 +4,37 @@ using UnityEngine;
 public class GroundTile : MonoBehaviour
 {
     GroundSpawner groundSpawner;
+    [SerializeField] GameObject obstaclePrefab;
+    [SerializeField] GameObject coinPrefarb;
+    [SerializeField] GameObject tallobstaclePrefab;
+    [SerializeField] float tallObstacleChance=0.2f;
     void Start()
     {
         groundSpawner=GameObject.FindObjectOfType<GroundSpawner>();
-        SpawnObstacles();
-        SpawnCoins();
     }
     private void OnTriggerExit(Collider other)
     {
-        groundSpawner.SpawnTile();
+        groundSpawner.SpawnTile(true);
         Destroy(gameObject, 2);
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    public GameObject obstaclePrefab;
 
-    void SpawnObstacles()
+    public void SpawnObstacles()
     {
+        GameObject obstacletospawn = obstaclePrefab;
+        float random = Random.Range(0f, 1f);
+        if (random < tallObstacleChance)
+        {
+            obstacletospawn = tallobstaclePrefab;
+        }
         int obstacleSpawnerIndex = Random.Range(2,5);
         Transform spawnPoint=transform.GetChild(obstacleSpawnerIndex).transform;
 
-        Instantiate(obstaclePrefab, spawnPoint.position, Quaternion.identity, transform);
+        Instantiate(obstacletospawn, spawnPoint.position, Quaternion.identity, transform);
 
     }
-    public GameObject coinPrefarb;
 
-    void SpawnCoins()
+    public void SpawnCoins()
     {
         int coinstospawn = 10;
         for (int i = 0; i < coinstospawn; i++)
