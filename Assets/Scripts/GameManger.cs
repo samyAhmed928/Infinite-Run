@@ -28,7 +28,6 @@ public class GameManger : MonoBehaviour
             second_source.Play();
             upgradeScore += 10;
         }
-        //increase player speed
         playerMovment.speed += playerMovment.speedIncreasePoint;
     }
     
