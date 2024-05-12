@@ -36,7 +36,7 @@ public class GroundTile : MonoBehaviour
 
     public void SpawnCoins()
     {
-        int coinstospawn = 10;
+        int coinstospawn = 5;
         for (int i = 0; i < coinstospawn; i++)
         {
            GameObject tmp= Instantiate(coinPrefarb,transform);
