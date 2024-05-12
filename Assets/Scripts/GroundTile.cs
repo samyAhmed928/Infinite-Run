@@ -15,7 +15,7 @@ public class GroundTile : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         groundSpawner.SpawnTile(true);
-        Destroy(gameObject, 2);
+        Destroy(gameObject, 3);
     }
 
 
