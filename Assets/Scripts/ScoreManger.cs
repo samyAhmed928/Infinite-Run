@@ -7,20 +7,20 @@ public class ScoreManger : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public TextMeshProUGUI textMeshProObject1;
-    public TextMeshProUGUI textMeshProObject2;
+    public TextMeshProUGUI TotalScoreText;
+    public TextMeshProUGUI HighScoreText;
 
     void Start()
     {
-        textMeshProObject1 = GameObject.Find("TextMeshPro1").GetComponent<TextMeshProUGUI>();
-        textMeshProObject2 = GameObject.Find("TextMeshPro2").GetComponent<TextMeshProUGUI>();
+        TotalScoreText = GameObject.Find("TextMeshPro1").GetComponent<TextMeshProUGUI>();
+        HighScoreText = GameObject.Find("TextMeshPro2").GetComponent<TextMeshProUGUI>();
 
         int totalScore = PlayerPrefs.GetInt("TotalScore", 0);
         int highScore = PlayerPrefs.GetInt("HighScore", 0);
 
         // Update the text of textMeshProObject1 and textMeshProObject2 with the initial scores
-        textMeshProObject1.text = $"Total SCORE : {totalScore}";
-        textMeshProObject2.text = $"High Score : {highScore}";
+        TotalScoreText.text = $"Total SCORE : {totalScore}";
+        HighScoreText.text = $"High Score : {highScore}";
 
         // Check if GameManger.inst is not null before accessing it
         //if (GameManger.inst.getPlayerScore() != null)
@@ -42,8 +42,8 @@ public class ScoreManger : MonoBehaviour
             PlayerPrefs.SetInt("HighScore", highScore);
 
             // Update the text with the updated scores
-            textMeshProObject1.text = $"Total SCORE : {totalScore}";
-            textMeshProObject2.text = $"High Score : {highScore}";
+            TotalScoreText.text = $"Total SCORE : {totalScore}";
+            HighScoreText.text = $"High Score : {highScore}";
         //}
 
 

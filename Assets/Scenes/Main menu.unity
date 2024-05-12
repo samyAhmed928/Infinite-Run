@@ -300,8 +300,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4259876c5b4440c4caac73259840159e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMeshProObject1: {fileID: 0}
-  textMeshProObject2: {fileID: 0}
+  TotalScoreText: {fileID: 0}
+  HighScoreText: {fileID: 0}
 --- !u!1 &741244156
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,8 +569,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279959541
-  m_fontColor: {r: 0.959758, g: 1, b: 0.103773475, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -776,8 +776,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4282707443
-  m_fontColor: {r: 0.9547169, g: 0.9295911, b: 0.26479882, a: 1}
+    rgba: 4278519045
+  m_fontColor: {r: 0.01886791, g: 0.017764315, b: 0.017764315, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

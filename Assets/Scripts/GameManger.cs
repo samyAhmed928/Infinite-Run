@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using Unity.VisualScripting;
+using TMPro;
 
 public class GameManger : MonoBehaviour
 {
     int score=0;
     int upgradeScore = 10;
     public static GameManger inst;
-    [SerializeField] Text scoreText;
+    
+    public TextMeshProUGUI ScoreText;
+
     [SerializeField] PlayerMovment playerMovment;
     public AudioSource Source,second_source;
     public AudioClip Coin_sound,upgradeSfx;
     public void IncrementScore()
     {
         score++;
-        scoreText.text = $"SCORE : {score}";
+        ScoreText.text = $"SCORE : {score}";
         Source.clip = Coin_sound;
         Source.Play();
         if (score == upgradeScore)
@@ -41,6 +44,7 @@ public class GameManger : MonoBehaviour
     }
     void Start()
     {
+        ScoreText = GameObject.Find("Smesh").GetComponent<TextMeshProUGUI>();
 
     }
 
