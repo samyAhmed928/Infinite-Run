@@ -8,6 +8,7 @@ public class PlayerMovment : MonoBehaviour
 {
     bool alive = true;
     bool IsonGround = true;
+    bool Dying;
     public float speed = 5;
     [SerializeField] Rigidbody rb;
 
@@ -33,9 +34,11 @@ public class PlayerMovment : MonoBehaviour
                 
     void Start()
     {
+        Dying = true;
         anim = GetComponent<Animator>();
         source.clip = StartSfx;
         source.Play();
+
     }
 
     // Update is called once per frame
@@ -43,15 +46,16 @@ public class PlayerMovment : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
         if (Input.GetButtonDown("Jump") && IsonGround&&alive)
-            {
+        {
                 Jump();
                 IsonGround = false;
-            }
+        }
 
-            if (transform.position.y < -5)
-            {
-                Die();
-            }
+        if (transform.position.y < -5&&Dying)
+        {
+           Die();
+           Dying = false;
+        }
         
 
 
@@ -66,12 +70,13 @@ public class PlayerMovment : MonoBehaviour
 
         second_src.clip = EndSfx;
         second_src.Play();
+
         Invoke("Restart",4);
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Main menu");
 
     }
 
@@ -92,7 +97,7 @@ public class PlayerMovment : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground")) // Assuming the ground has a tag "Ground"
         {
-            Debug.Log("Colloision");
+            //Debug.Log("Colloision");
             IsonGround = true; // Reset jumping state when colliding with the ground
         }
     }

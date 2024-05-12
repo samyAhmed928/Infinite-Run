@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class GameManger : MonoBehaviour
 {
-    int score;
+    int score=0;
     int upgradeScore = 10;
     public static GameManger inst;
     [SerializeField] Text scoreText;
@@ -27,6 +28,11 @@ public class GameManger : MonoBehaviour
         //increase player speed
         playerMovment.speed += playerMovment.speedIncreasePoint;
     }
+    
+    public int getPlayerScore()
+    {
+        return score;
+    }
     // Start is called before the first frame update
 
     private void Awake()
@@ -35,7 +41,7 @@ public class GameManger : MonoBehaviour
     }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
