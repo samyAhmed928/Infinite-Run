@@ -8,7 +8,7 @@ using TMPro;
 public class GameManger : MonoBehaviour
 {
     int score=0;
-    int upgradeScore = 10;
+    //int upgradeScore = 10;
     public static GameManger inst;
     
     public TextMeshProUGUI ScoreText;
@@ -22,11 +22,11 @@ public class GameManger : MonoBehaviour
         ScoreText.text = $"SCORE : {score}";
         Source.clip = Coin_sound;
         Source.Play();
-        if (score == upgradeScore)
+        if (score%10 == 0)
         {
             second_source.clip = upgradeSfx;
             second_source.Play();
-            upgradeScore += 10;
+            //upgradeScore += 10;
         }
         playerMovment.speed += playerMovment.speedIncreasePoint;
     }
